@@ -8,17 +8,19 @@
     <h4>{{ products[0] }}</h4>
     <p>60 만원</p>
       <!-- v-on:click="" -->
-    <button @:click="increase">허위매물신고</button> <span>신고수 : {{ 신고수 }}</span>
+    <button @:click="신고수[0]++">허위매물신고</button> <span>신고수 : {{ 신고수[0] }}</span>
     <!-- 변수에 ++ (1씩 증가) -->
     <!-- Vue는 데이터가 변하면 HTML은 자동으로 변경됨 -->
   </div>
   <div>
     <h4>{{ products[1] }}</h4>
     <p>50 만원</p>
+    <button @:click="신고수[1]++">허위매물신고</button> <span>신고수 : {{ 신고수[1] }}</span>
   </div>
   <div>
     <h4>{{ products[2] }}</h4>
     <p>70 만원</p>
+    <button @:click="신고수[2]++">허위매물신고</button> <span>신고수 : {{ 신고수[2] }}</span>
   </div>
 
 </template>
@@ -30,7 +32,7 @@ export default {
   name: 'App',
   data(){
     return {
-      신고수 : 0,
+      신고수 : [0, 0, 0],
       메뉴들 : ['Home', 'Shop', 'About'],
       products : ['역삼동원룸', '천호동원룸', '마포구원룸']
     }
@@ -38,9 +40,9 @@ export default {
   // Vue에서 함수 만드는 방법
   // Vue에서 함수 만들때 주의사항 -> 함수안에서 데이터를 불러올 때에는 this.데이터명
   methods : {
-    increase(){
-      this.신고수 += 1;
-    },
+    // increase(){
+    //   this.신고수[0] += 1;
+    // },
   },
   components: {
 
