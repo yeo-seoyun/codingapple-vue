@@ -1,13 +1,28 @@
 <template>
+
+  <div class="menu">
+    <a v-for="상단메뉴 in 메뉴들" :key="상단메뉴">{{ 상단메뉴 }}</a>
+  </div>
+
+  <!-- Vue의 HTML 반복문 <태그 v-for="작명 in 횟수 :key="작명"> -->
+  <!-- Vue 반복문 특징
+    1. array/object 집어넣기 가능
+    -> 자료안의 데이터 갯수만큼 반복
+    -> 작명한 변수는 데이터안의 자료가 됨 -->
+
   <img alt="Vue logo" src="./assets/logo.png">
   <div>
     <!-- {{ logo }} -->
-    <h4 class="red" :style="스타일">xx 원룸</h4>
-    <p>{{ price1 }} 만원</p>
+    <h4>{{ products[0] }} 원룸</h4>
+    <p>60 만원</p>
   </div>
   <div>
-    <h4>xx 원룸</h4>
-    <p>{{ price2 }} 만원</p>
+    <h4>{{ products[1] }} 원룸</h4>
+    <p>70 만원</p>
+  </div>
+  <div>
+    <h4>{{ products[3] }} 원룸</h4>
+    <p>70 만원</p>
   </div>
 
 </template>
@@ -26,10 +41,8 @@ export default {
   name: 'App',
   data(){
     return {
-      price1 : 60,
-      price2 : 70,
-      // logo : '원룸샵', -> 자주 변경되지 않는 데이터는 바인딩 하지 않음
-      스타일 : 'color : blue',
+      메뉴들 : ['Home', 'Shop', 'About'],
+      products : ['역삼동원룸', '천호동원룸', '마포구원룸']
     }
   },
   components: {
@@ -46,5 +59,15 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.menu {
+  background: darkslateblue;
+  padding: 15px;
+  border-radius: 5px
+}
+.menu a {
+  color: white;
+  padding: 10px;
 }
 </style>
