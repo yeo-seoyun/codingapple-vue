@@ -1,16 +1,20 @@
 <template>
 
   <div class="menu">
-    <a v-for="상단메뉴 in 메뉴들" :key="상단메뉴">{{ 상단메뉴 }}</a>
+    <a v-for="(상단메뉴,i) in 메뉴들" :key="i">{{ 상단메뉴 }}</a>
+    <!-- <a v-for="상단메뉴 in 메뉴들" :key="상단메뉴">{{ 상단메뉴 }}</a> -->
   </div>
 
   <!-- Vue의 HTML 반복문 <태그 v-for="작명 in 횟수 :key="작명"> -->
   <!-- Vue 반복문 특징
     1. array/object 집어넣기 가능
     -> 자료안의 데이터 갯수만큼 반복
-    -> 작명한 변수는 데이터안의 자료가 됨 -->
+    -> 작명한 변수는 데이터안의 자료가 됨
+    2. 변수 작명 2개까지 가능
+    -> 왼쪽 변수는 array내의 데이터
+    -> 오른쪽 변수는 1씩 증가하는 정수
+    -->
 
-  <img alt="Vue logo" src="./assets/logo.png">
   <div>
     <!-- {{ logo }} -->
     <h4>{{ products[0] }} 원룸</h4>
@@ -58,7 +62,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 
 .menu {
