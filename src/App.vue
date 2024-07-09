@@ -15,18 +15,10 @@
     -> 오른쪽 변수는 1씩 증가하는 정수
     -->
 
-  <div>
-    <!-- {{ logo }} -->
-    <h4>{{ products[0] }} 원룸</h4>
+  <div v-for="(상가,i) in products" :key="i">
+    <h4>{{ 상가 }}</h4>
+    <!-- <h4>{{ products[i] }}</h4> -->
     <p>60 만원</p>
-  </div>
-  <div>
-    <h4>{{ products[1] }} 원룸</h4>
-    <p>70 만원</p>
-  </div>
-  <div>
-    <h4>{{ products[3] }} 원룸</h4>
-    <p>70 만원</p>
   </div>
 
 </template>
