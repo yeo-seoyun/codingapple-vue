@@ -5,6 +5,7 @@
   </div>
 
   <div>
+    <img src="./assets/room0.jpg" alt="room0" class="room-img ">
     <h4>{{ products[0] }}</h4>
     <p>60 만원</p>
       <!-- v-on:click="" -->
@@ -13,11 +14,13 @@
     <!-- Vue는 데이터가 변하면 HTML은 자동으로 변경됨 -->
   </div>
   <div>
+    <img src="./assets/room1.jpg" alt="room1" class="room-img ">
     <h4>{{ products[1] }}</h4>
     <p>50 만원</p>
     <button @:click="신고수[1]++">허위매물신고</button> <span>신고수 : {{ 신고수[1] }}</span>
   </div>
   <div>
+    <img src="./assets/room2.jpg" alt="room2" class="room-img ">
     <h4>{{ products[2] }}</h4>
     <p>70 만원</p>
     <button @:click="신고수[2]++">허위매물신고</button> <span>신고수 : {{ 신고수[2] }}</span>
@@ -57,6 +60,11 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+
+.room-img {
+  width: 100%;
+  margin-top: 40px;
 }
 
 .menu {
