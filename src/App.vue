@@ -26,12 +26,19 @@
 
   <!-- 컴포넌트로 분리하기 -->
   <Discount />
+  <Card :원룸="원룸들[i]" v-for="(작명, i) in 원룸들" :key="작명" />
+  <!-- <Card :원룸="원룸들[0]" />
+  <Card :원룸="원룸들[1]" />
+  <Card :원룸="원룸들[2]" />
+  <Card :원룸="원룸들[3]" />
+  <Card :원룸="원룸들[4]" />
+  <Card :원룸="원룸들[5]" /> -->
 
-  <div v-for="(room, i) in 원룸들" :key="i">
+  <!-- <div v-for="(room, i) in 원룸들" :key="i">
     <img :src="room.image" alt="room0" class="room-img ">
     <h4 @:click="모달창열림 = true; 클릭 = i">{{ room.title }}</h4>
     <p>{{ room.price }}원</p>
-  </div>
+  </div> -->
 
 </template>
 
@@ -40,6 +47,7 @@
 import rooms from './assets/rooms.js'
 import DiscountComponent from './DiscountComponent.vue';
 import ModalComponent from './ModalComponent.vue';
+import CardComponent from './CardComponent.vue';
 
 export default {
   name: 'App',
@@ -61,6 +69,7 @@ export default {
   components: {
     Discount : DiscountComponent,
     Modal : ModalComponent,
+    Card : CardComponent,
   }
 }
 </script>
