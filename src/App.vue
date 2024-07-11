@@ -12,19 +12,22 @@
   </div> 
   -->
 
+  <div class="menu">
+    <a v-for="(상단메뉴,i) in 메뉴들" :key="i">{{ 상단메뉴 }}</a>
+  </div>
+
   <div class="black-bg" v-if="모달창열림 == true">
     <div class="white-bg">
       <h4>{{ 원룸들[클릭].title }}</h4>
       <p>{{ 원룸들[클릭].content }}</p>
+      <p>{{ 원룸들[클릭].price }}</p>
       <button @:click="모달창열림 = false">닫기</button>
     </div>
   </div>
   <!-- 사용자가 몇 번째 상품을 클릭했는지 기록하는 data 작성 -->
 
-  <div class="menu">
-    <a v-for="(상단메뉴,i) in 메뉴들" :key="i">{{ 상단메뉴 }}</a>
-  </div>
-
+  <!-- 컴포넌트로 분리하기 -->
+  <Discount />
 
   <div v-for="(room, i) in 원룸들" :key="i">
     <img :src="room.image" alt="room0" class="room-img ">
@@ -37,6 +40,7 @@
 <script>
 
 import rooms from './assets/rooms.js'
+import DiscountComponent from './DiscountComponent.vue';
 
 export default {
   name: 'App',
@@ -56,7 +60,7 @@ export default {
     // },
   },
   components: {
-
+    Discount : DiscountComponent,
   }
 }
 </script>
