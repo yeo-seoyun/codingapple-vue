@@ -13,11 +13,11 @@
   </div>
 
 
-  <div>
-    <img src="./assets/room0.jpg" alt="room0" class="room-img ">
-    <h4 @:click="모달창열림 = true">{{ products[0] }}</h4>
-    <p>60 만원</p>
-    <button @:click="신고수[0]++">허위매물신고</button> <span>신고수 : {{ 신고수[0] }}</span>
+  <div v-for="(room, i) in 원룸들" :key="i">
+    <img :src="room.image" alt="room0" class="room-img ">
+    <!-- HTML 태그안의 속성 데이터바인딩은 :으로 시작 -->
+    <h4 @:click="모달창열림 = true">{{ room.title }}</h4>
+    <p>{{ room.price }}원</p>
   </div>
 
 </template>
@@ -33,7 +33,8 @@ export default {
       모달창열림 : false, 
       신고수 : [0, 0, 0],
       메뉴들 : ['Home', 'Shop', 'About'],
-      products : ['역삼동원룸', '천호동원룸', '마포구원룸'],
+      // products : ['역삼동원룸', '천호동원룸', '마포구원룸'],
+      원룸들 : rooms,
     }
   },
   methods : {
