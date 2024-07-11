@@ -1,12 +1,25 @@
 <template>
 
+  <!-- 
+  <div v-if="1 == 2">
+    <p>안녕하세요</p>
+  </div>
+  <div v-else>
+    <p>안녕하세요2</p>
+  </div> 
+  <div v-else-if="1 == 3">
+    <p>안녕하세요2</p>
+  </div> 
+  -->
+
   <div class="black-bg" v-if="모달창열림 == true">
     <div class="white-bg">
-      <h4>상세페이지</h4>
-      <p>상세페이지내용</p>
+      <h4>{{ 원룸들[클릭].title }}</h4>
+      <p>{{ 원룸들[클릭].content }}</p>
       <button @:click="모달창열림 = false">닫기</button>
     </div>
   </div>
+  <!-- 사용자가 몇 번째 상품을 클릭했는지 기록하는 data 작성 -->
 
   <div class="menu">
     <a v-for="(상단메뉴,i) in 메뉴들" :key="i">{{ 상단메뉴 }}</a>
@@ -15,8 +28,7 @@
 
   <div v-for="(room, i) in 원룸들" :key="i">
     <img :src="room.image" alt="room0" class="room-img ">
-    <!-- HTML 태그안의 속성 데이터바인딩은 :으로 시작 -->
-    <h4 @:click="모달창열림 = true">{{ room.title }}</h4>
+    <h4 @:click="모달창열림 = true; 클릭 = i">{{ room.title }}</h4>
     <p>{{ room.price }}원</p>
   </div>
 
@@ -35,6 +47,7 @@ export default {
       메뉴들 : ['Home', 'Shop', 'About'],
       // products : ['역삼동원룸', '천호동원룸', '마포구원룸'],
       원룸들 : rooms,
+      클릭 : 0,
     }
   },
   methods : {
