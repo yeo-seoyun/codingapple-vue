@@ -12,19 +12,17 @@
   </div> 
   -->
 
+  <!-- props로 데이터 전송하여 사용하기
+    <자식 v-bind:데이터="데이터">
+
+    데이터를 만들때에는 최상위 컴포넌트에 작성하는 것이 좋음
+  -->
+  <Modal :원룸들="원룸들" :클릭="클릭" :모달창열림="모달창열림" />
+
   <div class="menu">
     <a v-for="(상단메뉴,i) in 메뉴들" :key="i">{{ 상단메뉴 }}</a>
   </div>
 
-  <div class="black-bg" v-if="모달창열림 == true">
-    <div class="white-bg">
-      <h4>{{ 원룸들[클릭].title }}</h4>
-      <p>{{ 원룸들[클릭].content }}</p>
-      <p>{{ 원룸들[클릭].price }}</p>
-      <button @:click="모달창열림 = false">닫기</button>
-    </div>
-  </div>
-  <!-- 사용자가 몇 번째 상품을 클릭했는지 기록하는 data 작성 -->
 
   <!-- 컴포넌트로 분리하기 -->
   <Discount />
@@ -41,6 +39,7 @@
 
 import rooms from './assets/rooms.js'
 import DiscountComponent from './DiscountComponent.vue';
+import ModalComponent from './ModalComponent.vue';
 
 export default {
   name: 'App',
@@ -61,6 +60,7 @@ export default {
   },
   components: {
     Discount : DiscountComponent,
+    Modal : ModalComponent,
   }
 }
 </script>
