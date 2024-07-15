@@ -15,7 +15,13 @@ export default {
   name : 'CardComponent',
   props : {
     원룸 : Object,
-  }
+  },
+  // 함수로 만들어서 사용할때는 this를 붙여준다. 함수명은 영어로!
+  // methods : {
+  //   함수(){
+  //     this.$emit('openModal', this.원룸.id)
+  //   }
+  // }
 }
 </script>
 <style lang="">
