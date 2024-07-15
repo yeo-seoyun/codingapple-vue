@@ -26,7 +26,7 @@
 
   <!-- 컴포넌트로 분리하기 -->
   <Discount />
-  <Card @openModal="모달창열림 = true" :원룸="원룸들[i]" v-for="(작명, i) in 원룸들" :key="작명" />\
+  <Card @openModal="모달창열림 = true; 클릭 = $event" :원룸="원룸들[i]" v-for="(작명, i) in 원룸들" :key="작명" />\
   <!-- 
     여기에 바로 클릭이벤트 적용하면 이벤트버블링 현상 발생
     custom event 사용
