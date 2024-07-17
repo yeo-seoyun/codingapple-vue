@@ -4,7 +4,7 @@
       <h4>{{ 원룸들[클릭].title }}</h4>
       <p>{{ 원룸들[클릭].content }}</p>
       <p>{{ 원룸들[클릭].price }}</p>
-      <!-- <button @:click="모달창열림 = false">닫기</button> -->
+      <button @:click="$emit('closeModal')">닫기</button>
       <!-- props로 받아 온 건 read-only -->
     </div>
   </div>
