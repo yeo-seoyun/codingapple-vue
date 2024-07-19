@@ -3,7 +3,11 @@
     <div class="white-bg">
       <h4>{{ 원룸들[클릭].title }}</h4>
       <p>{{ 원룸들[클릭].content }}</p>
-      <p>{{ 원룸들[클릭].price }}</p>
+      <!-- <input @input="month = $event.target.value"> -->
+      <!-- <input>에 입력한 값을 데이터로 저장할 때 "data = $event.target.value"로 사용-->
+      <!-- 축약 방법 v-model -->
+      <input v-model="month">
+      <p> {{ month }}개월 선택 : {{ 원룸들[클릭].price * month }}</p>
       <button @:click="$emit('closeModal')">닫기</button>
       <!-- props로 받아 온 건 read-only -->
     </div>
@@ -12,6 +16,11 @@
 <script>
   export default {
     name : 'ModalComponent',
+    data() {
+      return {
+        month : 1,
+      }
+    },
     props : {
       원룸들 : Array,
       클릭 : Number,
