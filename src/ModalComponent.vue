@@ -8,6 +8,7 @@
       <!-- 축약 방법 v-model -->
       <input v-model="month">
       <!-- <input v-model.number="month"> = 숫자로 저장 -->
+      <!-- <input type="range" min="1" max="12"> -->
       <p> {{ month }}개월 선택 : {{ 원룸들[클릭].price * month }}</p>
       <button @:click="$emit('closeModal')">닫기</button>
       <!-- props로 받아 온 건 read-only -->
@@ -26,9 +27,15 @@
     // watch : { 감시할데이터(){}} -> data 감시
     watch : {
       // month 데이터가 변할 때마다 watcher도 실행됨
+      // month(a) {
+      //   if (a >= 13) {
+      //     alert('13이상은 입력하지 마세요')
+      //   }
+      // }
       month(a) {
-        if (a >= 13) {
-          alert('13이상은 입력하지 마세요')
+        if (isNaN(a) == true) {
+          alert('숫자만 입력해주세요.');
+          this.month = 1;
         }
       }
     },
